@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="static/logo/icon.png" />
+        <title>Gemcap</title>
+        <style>
+            @font-face {
+                font-family: "Italiana";
+                src: url("static/fonts/Italiana-Regular.ttf") format("ttf");
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+            }
+
+            :root {
+                --text-main: #f9f5d3;
+                --text-subtle: #b4bacd;
+                --text-faint: #7f87a5;
+                --cta: #dfdfbf;
+                --cta-dark: #111124;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                margin: 0;
+                min-height: 100%;
+            }
+
+            body {
+                font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+                color: var(--text-main);
+                background: radial-gradient(
+                    circle at 50% 0%,
+                    #000000 0%,
+                    #0d051d 28%,
+                    #0c2039 81%,
+                    #507d74 100%
+                );
+                overflow-x: hidden;
+                position: relative;
+            }
+
+            .page {
+                width: 100%;
+                max-width: 852px;
+                margin: 0 auto;
+                padding: clamp(2.4rem, 7vw, 4.5rem) 0 clamp(9rem, 20vw, 12rem);
+                position: relative;
+                z-index: 1;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .brand {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .brand h1 {
+                margin: 0;
+                font-family: "Italiana", "Times New Roman", serif;
+                font-size: clamp(3.1rem, 8.4vw, 5.8rem);
+                font-weight: 400;
+                letter-spacing: 0.03em;
+                line-height: 0.9;
+                text-shadow: 0 5px 26px rgba(0, 0, 0, 0.44);
+            }
+
+            .hero h2 {
+                margin: clamp(1.2rem, 4vw, 2rem) auto 0.8rem;
+                font-size: clamp(1.12rem, 3vw, 1.7rem);
+                font-weight: 600;
+                letter-spacing: 0.01em;
+                max-width: 34ch;
+            }
+
+            .hero p {
+                margin: 0 auto;
+                max-width: 66ch;
+                color: var(--text-subtle);
+                line-height: 1.72;
+                font-size: clamp(0.93rem, 1.8vw, 1rem);
+            }
+
+            .actions {
+                margin-top: 1.25rem;
+                display: flex;
+                gap: clamp(0.8rem, 2.1vw, 1.4rem);
+                justify-content: center;
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .action-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.35rem;
+            }
+
+            .pill {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.85rem;
+                text-decoration: none;
+                color: var(--cta);
+                background: transparent;
+                border: 3px solid var(--cta);
+                border-radius: 16px;
+                padding: 8px 16px;
+                font-size: clamp(1rem, 2.2vw, 1.08rem);
+                font-weight: 500;
+                line-height: 1;
+                transition: 140ms ease;
+            }
+
+            .action-item .pill {
+                white-space: nowrap;
+            }
+
+            .pill:hover,
+            .pill:focus-visible {
+                background: rgba(223, 223, 191, 0.1);
+            }
+
+            .pill .icon {
+                width: 1.45rem;
+                height: 1.45rem;
+                flex-shrink: 0;
+                stroke: currentColor;
+                stroke-width: 2.2;
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .pill.primary {
+                color: var(--cta-dark);
+                background: var(--cta);
+                border-color: var(--cta);
+            }
+
+            .pill.primary:hover,
+            .pill.primary:focus-visible {
+                background: #eeeecc;
+            }
+
+            .pill.is-inactive,
+            .pill.is-inactive:hover,
+            .pill.is-inactive:focus-visible {
+                opacity: 0.65;
+                background: #c9c9ac;
+                border-color: #c9c9ac;
+                color: #333335;
+                pointer-events: none;
+                cursor: not-allowed;
+            }
+
+            .pill-note {
+                margin: 0;
+                font-size: 0.74rem;
+                color: var(--text-faint);
+                letter-spacing: 0.02em;
+            }
+
+            figure {
+                margin: 0;
+            }
+
+            .phone-stack {
+                margin-top: clamp(1.3rem, 4vw, 2rem);
+                position: relative;
+            }
+
+            .phone-stack .frame {
+                margin: 0 auto;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                gap: clamp(0.45rem, 2.2vw, 1rem);
+                padding: 0.45rem;
+            }
+
+            .phone-stack img {
+                display: block;
+                height: auto;
+            }
+
+            figcaption {
+                margin-top: 0.52rem;
+                text-align: center;
+                color: var(--text-faint);
+                font-size: 0.76rem;
+            }
+
+            section.content {
+                margin-top: clamp(2.2rem, 7vw, 4rem);
+            }
+
+            section.content h3 {
+                margin: 0;
+                font-size: clamp(1.45rem, 4.2vw, 2rem);
+                font-weight: 600;
+                letter-spacing: 0.01em;
+            }
+
+            .wide-shot {
+                margin: 3.2rem auto 0;
+                width: min(640px, 100%);
+            }
+
+            .wide-shot img {
+                width: 100%;
+                height: auto;
+                display: block;
+                filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.4));
+            }
+
+            .open-source {
+                margin-top: clamp(2.6rem, 8vw, 4.8rem);
+            }
+
+            .site-footer {
+                margin-top: clamp(2.8rem, 8vw, 4.6rem);
+                padding-top: 1rem;
+                text-align: center;
+                font-size: 0.92rem;
+            }
+
+            .site-footer a {
+                color: var(--cta);
+                text-underline-offset: 0.18em;
+            }
+
+            @media (max-width: 600px) {
+                .page {
+                    width: 92vw;
+                }
+
+                .brand {
+                    gap: 0.7rem;
+                }
+
+                .brand img {
+                    width: clamp(100px, 30vw, 160px);
+                }
+
+                .hero h2 {
+                    margin-top: 0.95rem;
+                }
+
+                .phone-stack .frame {
+                    gap: 0.38rem;
+                }
+
+                .phone-stack img {
+                    width: min(31.3vw, 136px);
+                }
+
+                .action-item {
+                    width: 100%;
+                    flex: 1;
+                }
+
+                .pill {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="page">
+            <section class="hero">
+                <div class="brand">
+                    <h1>Gemcap</h1>
+                    <img src="static/logo/gemcap-logo.svg" alt="Gemcap logo" />
+                </div>
+            </section>
+
+            <section class="content">
+                <h2>A modern Gemini browser for Android</h2>
+                <p>
+                    Gemcap brings the lightweight Gemini protocol to your
+                    Android with a clean, Google Chrome and Lagrange inspired
+                    interface. Browse Geminispace with speed, simplicity, and
+                    style: featuring tab management, bookmarks, identities,
+                    search and more.
+                </p>
+
+                <div class="actions">
+                    <div class="action-item">
+                        <a
+                            class="pill primary is-inactive"
+                            aria-label="Google Play Store awaiting review"
+                            aria-disabled="true"
+                            tabindex="-1"
+                        >
+                            <svg
+                                class="icon"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M12 3V14"></path>
+                                <path d="M7 10L12 15L17 10"></path>
+                                <path d="M4 17V21H20V17"></path>
+                            </svg>
+                            Google Play Store
+                        </a>
+                        <p class="pill-note">awaiting review</p>
+                    </div>
+                    <div class="action-item">
+                        <a
+                            class="pill"
+                            href="https://github.com/hugmouse/gemcap"
+                            rel="me"
+                            aria-label="Open GitHub repository"
+                        >
+                            <svg
+                                class="icon"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M12 3V14"></path>
+                                <path d="M7 10L12 15L17 10"></path>
+                                <path d="M4 17V21H20V17"></path>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <figure class="phone-stack">
+                    <div class="frame">
+                        <img
+                            src="static/screenshot/pixel-9-vertical-1.webp"
+                            alt="Gemcap app screenshot showing feed view"
+                        />
+                        <img
+                            src="static/screenshot/pixel-9-vertical-2.webp"
+                            alt="Gemcap app screenshot showing menu and sections"
+                        />
+                        <img
+                            src="static/screenshot/pixel-9-vertical-3.webp"
+                            alt="Gemcap app screenshot showing settings and tabs"
+                        />
+                    </div>
+                    <figcaption>
+                        Screenshots of Gemcap on Google Pixel 9a
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="content">
+                <h3>Gemsearch</h3>
+                <p>
+                    Fast and efficient search engine designed exclusively for
+                    Geminispace. Discover capsules, articles, and content across
+                    the small web with ease. No trackers, no ads, just pure
+                    search results.
+                </p>
+
+                <figure class="wide-shot">
+                    <img
+                        src="static/screenshot/pixel-9-horizontal-1.webp"
+                        alt="Gemsearch results shown in horizontal mode"
+                    />
+                    <figcaption>Horizontal view on Google Pixel 9a</figcaption>
+                </figure>
+            </section>
+
+            <section class="content open-source">
+                <h3>Open-Source</h3>
+                <p>
+                    I wanted to try develop a thing for Android with Kotlin and
+                    Android Studio. I completely ignored MVVM design principles
+                    and now this browser is unmaintainable since day 1. But it’s
+                    open-source!
+                </p>
+                <p>You're welcome.</p>
+
+                <div class="actions">
+                    <div class="action-item">
+                        <a
+                            class="pill primary is-inactive"
+                            aria-label="Google Play Store awaiting review"
+                            aria-disabled="true"
+                            tabindex="-1"
+                        >
+                            <svg
+                                class="icon"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M12 3V14"></path>
+                                <path d="M7 10L12 15L17 10"></path>
+                                <path d="M4 17V21H20V17"></path>
+                            </svg>
+                            Google Play Store
+                        </a>
+                        <p class="pill-note">awaiting review</p>
+                    </div>
+                    <div class="action-item">
+                        <a
+                            class="pill"
+                            href="https://github.com/hugmouse/gemcap"
+                            rel="me"
+                            aria-label="Open GitHub repository"
+                        >
+                            <svg
+                                class="icon"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M12 3V14"></path>
+                                <path d="M7 10L12 15L17 10"></path>
+                                <path d="M4 17V21H20V17"></path>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="site-footer">
+                <a href="privacy.html">Privacy Policy</a>
+            </footer>
+        </main>
+    </body>
+</html>
