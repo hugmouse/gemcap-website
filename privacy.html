@@ -2,12 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <meta name="description" content="Privacy Policy for Gemcap - A modern Gemini browser for Android. We don't collect any personal information or user data." />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://hugmouse.github.io/gemcap-website/privacy.html" />
+        <meta property="og:title" content="Privacy Policy | Gemcap" />
+        <meta property="og:description" content="Gemcap is committed to protecting your privacy. We don't collect any personal information or user data. All data is stored locally on your device." />
+
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:url" content="https://hugmouse.github.io/gemcap-website/privacy.html" />
+        <meta property="twitter:title" content="Privacy Policy | Gemcap" />
+        <meta property="twitter:description" content="Gemcap is committed to protecting your privacy. We don't collect any personal information or user data." />
+        
         <title>Privacy Policy | Gemcap</title>
         <style>
             @font-face {
                 font-family: "Italiana";
-                src: url("static/fonts/Italiana-Regular.ttf") format("ttf");
+                src: url("static/fonts/Italiana-Regular.ttf") format("truetype");
                 font-style: normal;
                 font-weight: 400;
                 font-display: swap;
@@ -23,10 +35,14 @@
                 box-sizing: border-box;
             }
 
+            html {
+                height: 100%;
+            }
+
             html,
             body {
                 margin: 0;
-                min-height: 100%;
+                padding: 0;
             }
 
             body {
@@ -38,8 +54,14 @@
                     #0d051d 28%,
                     #0c2039 81%,
                     #507d74 100%
-                );
+                ) fixed;
+                background-color: #0c2039;
                 line-height: 1.65;
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
+                /* iOS Safari fixes */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
 
             main {
@@ -95,6 +117,17 @@
 
             a {
                 color: #dfdfbf;
+                transition: color 140ms ease;
+            }
+
+            a:hover {
+                color: #eeeecc;
+            }
+
+            a:focus-visible {
+                outline: 3px solid #dfdfbf;
+                outline-offset: 4px;
+                border-radius: 4px;
             }
 
             footer {
@@ -107,7 +140,7 @@
         </style>
     </head>
     <body>
-        <main>
+        <main id="main-content">
             <h1>Privacy Policy</h1>
             <p class="updated">Last Updated: February 8, 2026</p>
 
